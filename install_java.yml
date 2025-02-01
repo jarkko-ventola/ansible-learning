@@ -5,7 +5,8 @@
   tasks:
 
   - name: Install Java 11
-    apt:
+    package:
       name:
         - openjdk-11-jdk
       update_cache: yes
+      state: present
