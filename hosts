@@ -1,3 +1,6 @@
+[kubemaster]
 192.168.56.10
+
+[kubeworker]
 192.168.56.20
 

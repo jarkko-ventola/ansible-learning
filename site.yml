@@ -1,0 +1,19 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: Install updates
+    tags: always
+    apt:
+      upgrade: dist
+      update_cache: yes
+
+  - name: Install Java 11
+    tags: always
+    package:
+      name:
+        - openjdk-11-jdk
+      update_cache: yes
+      state: present
