@@ -1,0 +1,31 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: Install updates
+    tags: always
+    apt:
+      upgrade: dist
+      update_cache: yes
+
+  - name: Install Java 11
+    tags: always
+    package:
+      name:
+        - openjdk-11-jdk
+      update_cache: yes
+      state: present
+
+  - name: copy files
+    copy:
+      src: default_site.html
+      dest: /tmp/index.html
+      owner: root
+      group: root
+      mode: 0644
+
+  - name: install zip
+    package:
+      name: unzip
