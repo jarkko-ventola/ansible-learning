@@ -17,3 +17,15 @@
         - openjdk-11-jdk
       update_cache: yes
       state: present
+
+  - name: copy files
+    copy:
+      src: default_site.html
+      dest: /tmp/index.html
+      owner: root
+      group: root
+      mode: 0644
+
+  - name: install zip
+    package:
+      name: unzip
